@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-forest: #183D2B;
+    --color-forest-deep: #112B1E;
+    --color-ivory: #F7F1E3;
+    --color-ivory-soft: #FBF8F0;
+    --color-ivory-warm: #EDE4CF;
+    --color-gold: #C49A52;
+    --color-gold-dark: #A67E38;
+    --color-sage: #DCE6D6;
+    --color-ink: #26332B;
+    --color-ink-muted: #4E5C53;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans Telugu', 'Noto Sans Devanagari', system-ui, -apple-system, sans-serif;
+    background-color: #F7F1E3;
+    color: #26332B;
+  }
+
+  h1, h2, h3, h4, .font-serif-editorial {
+    font-family: 'Cormorant Garamond', 'Noto Sans Telugu', 'Noto Sans Devanagari', Georgia, serif;
+  }
+}
+
+/* Subtle editorial reveal transitions */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Fine hairline border utility */
+.editorial-rule {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(196, 154, 82, 0.65) 0%, rgba(24, 61, 43, 0.18) 100%);
+}
